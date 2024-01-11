@@ -1,0 +1,261 @@
+* {
+  box-sizing: border-box
+}
+
+body {
+  font-family: 'Salsa';
+  background: #f7f7f7
+}
+
+:root {
+  --main-color: #864AF9;
+}
+
+.main {
+  background: #fff;
+  border-bottom: 1px solid #ebebeb;
+
+  .game-info {
+    .category {
+      span {
+        color: var(--main-color)
+      }
+    }
+  }
+}
+
+.hangman-draw {
+  background-color: #fff;
+  border-bottom: 1px solid var(--main-color);
+  padding: 20px;
+  height: 320px
+}
+
+.hangman-draw .the-draw {
+  width: 60px;
+  height: 280px;
+  border-bottom: 4px solid var(--main-color);
+  position: relative;
+  margin: auto;
+  left: -60px;
+  display: none;
+}
+
+.hangman-draw .the-stand {
+  position: absolute;
+  width: 4px;
+  background-color: var(--main-color);
+  height: 100%;
+  left: 50%;
+  margin-left: -2px;
+  display: none;
+}
+
+.hangman-draw .the-hang {
+  display: none;
+}
+
+.hangman-draw .the-hang:before {
+  content: '';
+  position: absolute;
+  height: 4px;
+  background-color: var(--main-color);
+  width: 100px;
+  left: 30px;
+  top: 15px;
+}
+
+.hangman-draw .the-hang:after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 30px;
+  background-color: var(--main-color);
+  left: 130px;
+  top: 15px;
+}
+
+.hangman-draw .the-rope {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: absolute;
+  left: 95px;
+  top: 45px;
+  border: 4px dashed var(--main-color);
+  display: none;
+}
+
+.hangman-draw .the-man .head {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 4px solid var(--main-color);
+  position: absolute;
+  left: 105px;
+  top: 55px;
+  display: none;
+}
+
+.hangman-draw .the-man .body {
+  position: absolute;
+  background-color: var(--main-color);
+  width: 4px;
+  height: 110px;
+  top: 102px;
+  left: 130px;
+  display: none;
+}
+
+.hangman-draw .the-man .hands {
+  display: none;
+}
+
+.hangman-draw .the-man .hands:before {
+  left: 85px;
+  transform: rotate(30deg);
+}
+
+.hangman-draw .the-man .hands:after {
+  left: 130px;
+  transform: rotate(-30deg);
+}
+
+.hangman-draw .the-man .hands:before,
+.hangman-draw .the-man .hands:after {
+  content: '';
+  width: 50px;
+  position: absolute;
+  height: 4px;
+  background-color: var(--main-color);
+  top: 140px;
+}
+
+.hangman-draw .the-man .legs {
+  display: none;
+}
+
+.hangman-draw .the-man .legs:before {
+  left: 85px;
+  transform: rotate(-30deg);
+}
+
+.hangman-draw .the-man .legs:after {
+  left: 130px;
+  transform: rotate(30deg);
+}
+
+.hangman-draw .the-man .legs:before,
+.hangman-draw .the-man .legs:after {
+  content: '';
+  width: 50px;
+  position: absolute;
+  height: 4px;
+  background-color: var(--main-color);
+  top: 220px;
+}
+
+.hangman-draw.wrong-1 .the-draw {
+  display: block;
+}
+
+.hangman-draw.wrong-2 .the-stand {
+  display: block;
+}
+
+.hangman-draw.wrong-3 .the-hang {
+  display: block;
+}
+
+.hangman-draw.wrong-4 .the-rope {
+  display: block;
+}
+
+.hangman-draw.wrong-5 .head {
+  display: block;
+}
+
+.hangman-draw.wrong-6 .body {
+  display: block;
+}
+
+.hangman-draw.wrong-7 .hands {
+  display: block;
+}
+
+.hangman-draw.wrong-8 .legs {
+  display: block;
+}
+
+.letters.finished {
+  pointer-events: none;
+}
+
+.letters .letter-box {
+  width: 95px;
+  height: 45px;
+  background-color: var(--main-color);
+  color: #FFF;
+  font-size: 25px;
+  margin-right: 5px;
+  line-height: 40px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 5px;
+  border-radius: 7px;
+  border: 3px solid #e5e5e5
+}
+
+.letters .letter-box.clicked {
+  background-color: #505050;
+  opacity: 0.5;
+  pointer-events: none
+}
+
+.letters-guess {
+  margin: 0 auto;
+  background-color: #fff
+}
+
+.letters-guess span {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  margin-right: 7px;
+  text-align: center;
+  line-height: 45px;
+  text-transform: uppercase;
+  background-color: #f7f7f7;
+  border-bottom: 3px solid var(--main-color)
+}
+
+.letters-guess span.with-space {
+  background: none;
+  border-bottom: none;
+  position: relative;
+}
+
+.letters-guess span.with-space:before {
+  content: '';
+  width: 15px;
+  height: 2px;
+  background-color: var(--main-color);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.popup {
+  position: fixed;
+  background-color: #fff;
+  padding: 25px 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 20px;
+  border: 1px solid var(--main-color);
+  color: #333;
+  border-radius: 50px
+}

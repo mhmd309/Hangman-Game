@@ -1,0 +1,22 @@
+/* Smart Phones And Tablets */
+@media (max-width:768px) {
+  .letters-guess {
+    flex-wrap: wrap;
+  }
+  .letters-guess span {
+    margin-bottom: 10px
+  }
+  .popup {
+    padding: 25px 10px;
+    font-size: 17px;
+    width: 80%
+  }
+}
+
+/* Small Screen */
+
+@media (min-width:769px) and (max-width:991px) {}
+
+/* Medium Screen */
+
+@media (min-width:992px) and (max-width:1199px) {}
